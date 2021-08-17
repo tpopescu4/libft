@@ -6,7 +6,7 @@
 /*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 18:44:55 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/07/30 18:49:56 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/08/17 16:58:10 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,4 @@ char	*ft_strdup(const char *s1)
 		l++;
 	}
 	return (cpy);
-}
-int main()
-{
-	char a[] = "hola";
-	char *b;
-
-	b = ft_strdup(a);
-	printf("%s\n", b);
-	return 0;
 }

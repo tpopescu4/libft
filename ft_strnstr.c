@@ -3,20 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 17:32:08 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/07/30 17:34:44 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/08/17 14:21:19 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main()
+char	*ft_strnstr(const char	*haystack, const char *needle, size_t len)
 {
-	char a[] = "pajarero";
-	char b[] = "ar";
+	size_t	i;
+	size_t	j;
+	size_t	c;
+	char	*tab;
 
-	printf("%s\n", strnstr(a,b, 4));
-	return 0;
+	i = 0;
+	tab = (char *)haystack;
+	c = ft_strlen(needle);
+	if (c == 0 || haystack == needle)
+		return (tab);
+	while (tab[i] != '\0' && i < len)
+	{
+		j = 0;
+		while (tab[i + j] != '\0' && needle[j] != '\0'
+			&& tab[i + j] == needle[j] && i + j < len)
+			j++;
+		if (j == c)
+			return (tab + i);
+		i++;
+	}
+	return (0);
 }

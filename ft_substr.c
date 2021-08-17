@@ -6,7 +6,7 @@
 /*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 17:47:29 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/07/30 17:54:04 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/08/17 17:02:13 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (f);
 }
-/*
-int main()
-{
-	char a[] = "hola Timotei";
-	char *b;
-
-	b = ft_substr(a, 5, 17);
-	printf("%s\n", b);
-	return 0;
-}*/

@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/30 17:54:39 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/08/17 17:32:54 by tpopescu         ###   ########.fr       */
+/*   Created: 2021/08/17 17:51:42 by tpopescu          #+#    #+#             */
+/*   Updated: 2021/08/17 17:57:57 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
-	int		j;
-	char	*a;
-
-	i = 0;
-	j = 0;
-	a = malloc(sizeof(char) * (1 + ft_strlen(s1) + ft_strlen(s2)));
-	if (!a)
-		return (NULL);
-	while (s1[i])
-		a[i++] = s1[j++];
-	j = 0;
-	while (s2[j])
-		a[i++] = s2[j++];
-	a[i] = '\0';
-	return (a);
+	if (n == -2147483648)
+	{
+		write(fd, "-2", 2);
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n < 10)
+	{
+		n += 48;
+		write(fd, &n, 1);
+		return ;
+	}
+	ft_putnbr_fd(n / 10);
+	ft_putnbr_fd(n % 10);
 }

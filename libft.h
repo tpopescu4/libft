@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/17 14:25:36 by tpopescu          #+#    #+#             */
+/*   Updated: 2021/08/17 17:00:41 by tpopescu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -16,13 +28,16 @@ int		ft_isascii(int c);
 int		ft_strlen(const char *s);
 int		ft_isprint(int c);
 int		ft_atoi(const char *str);
-char	*strchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
-size_t	strlcat(char *restrict dst, const char *restrict src, size_t dstsize);
-size_t	strlcpy(char *restrict dst, const char *restrict src, size_t dstsize);
+size_t	ft_strlcat(char *restrict dst,
+			const char *restrict src, size_t dstsize);
+size_t	ft_strlcpy(char *restrict dst,
+			const char *restrict src, size_t dstsize);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*strrchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 
 #endif

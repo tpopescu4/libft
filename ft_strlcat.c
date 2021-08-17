@@ -6,15 +6,15 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 16:33:05 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/07/30 18:52:39 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/08/17 14:25:16 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+size_t	strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	int i;
+	int	i;
 	int	j;
 	int	l;
 
