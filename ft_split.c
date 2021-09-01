@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:57:49 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/01 21:48:24 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/01 21:53:13 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,11 @@ char	**ft_split(char const *s, char c)
 	}
 	return (tab);
 }
+
 int		main(void)
 {
 	char **tab;
-	char s[] = "**Hey*BROOOO***quetal*a***";
+	char s[] = "Hey*BROOOO***quetal*a***";
 
 	tab = ft_split(s, '*');
 	printf("%s\n", tab[0]);
