@@ -6,7 +6,7 @@
 /*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 17:51:42 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/08/17 17:57:57 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:22:37 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &n, 1);
 		return ;
 	}
-	ft_putnbr_fd(n / 10);
-	ft_putnbr_fd(n % 10);
+	ft_putnbr_fd(n / 10, fd);
+	ft_putnbr_fd(n % 10, fd);
 }

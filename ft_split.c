@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:57:49 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/03 21:29:59 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:03:17 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,43 @@ int	ft_numchr(char const *s, char c, int a)
 	}
 	return (i);
 }
+
 int	ft_findstr(char const *s, char c, int a)
 {
 	int	i;
 	int	j;
+
 	i = 0;
-	j = 0;
-	if (a != 0)
-    	i = ft_findstr(s, c, a - 1);
-    if (a == 0)
-    {
-        if (s[i] != c)
-            return (i);
-        while (s[i] == c)
-            i++;
-        return (i);
-    }
-	else{
-		while (s[i])
-		{
-			i++;
-			if (s[i] != c && s[i - 1] == c)
-			   j++;
-			if (j == a)
-				return (i);
-		}
+	j = -1;
+	if (a == 0 && s[i] != c)
+		return (i);
+	if (s[0] != c)
+	{
+		i++;
+		j++;
+	}
+	while (s[i])
+	{
+		if (s[i] != c && s[i - 1] == c)
+		   j++;
+		if (j == a)
+			return (i);
+		i++;
 	}
 	return (i);
 }
+
 int	ft_numstr(char const *s, char c)
 {
 	int	i;
 	int	j;
-	i = ft_findstr(s, c, 0);
+
+	i = 0;
 	j = 0;
+	if (s[0] != c)
+		j++;
+	while (s[i + 1] != c)
+		i++;
 	while (s[i])
 	{
 		if (s[i] != c && s[i - 1] == c)
@@ -72,6 +75,7 @@ int	ft_numstr(char const *s, char c)
 	}
 	return (j);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
@@ -105,10 +109,12 @@ char	**ft_split(char const *s, char c)
 int		main(void)
 {
 	char **tab;
-	char s[] = "*Hey*BROOOO***quetal*a***";
+	char s[] = "****Hey*BROOOO***quetal*a***";
 	tab = ft_split(s, '*');
 	printf("%s\n", tab[0]);
 	printf("%s\n", tab[1]);
+	printf("%s\n", tab[2]);
 	printf("%s\n", tab[3]);
+	system("leaks a.out");
 	return (0);
 }
