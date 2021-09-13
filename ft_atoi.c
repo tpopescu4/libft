@@ -6,7 +6,7 @@
 /*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 15:10:00 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/07/30 15:26:39 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/13 14:45:19 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	x;
-	int	n;
+	int long	i;
+	int long	x;
+	int long	n;
 
 	i = 0;
 	x = 0;

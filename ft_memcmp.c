@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 20:54:00 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/08 21:27:57 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:18:30 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,18 @@
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	int	i;
+	unsigned char	*s1d;
+	unsigned char	*s2d;
 
+	s1d = (unsigned char *)s1;
+	s2d = (unsigned char *)s2;
 	i = 0;
 	while (n-- > 0)
 	{
-		if ((unsigned char)s1[i] > (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		if ((unsigned char)s2[i] > (unsigned char)s1[i])
-			return ((unsigned char)s2[i] - (unsigned char)s2[i]);
+		if (s1d[i] > s2d[i])
+			return (s1d[i] - s2d[i]);
+		if (s2d[i] > s1d[i])
+			return (s2d[i] - s2d[i]);
 		i++;
 	}
 	return (0);

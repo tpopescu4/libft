@@ -6,7 +6,7 @@
 /*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 21:09:27 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/08 21:24:43 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:04:26 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t	i;
+	char	*sd;
 
+	sd = (char *)s;
 	i = -1;
 	if (n > 0)
 	{
 		while (n-- > 0)
-			s[++i] = '\0';
+			sd[++i] = 0;
 	}
 }

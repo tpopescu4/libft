@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 14:25:36 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/08 21:24:38 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/13 16:47:37 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 void	ft_bzero(void *s, size_t n);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif

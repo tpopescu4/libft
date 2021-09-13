@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 21:05:13 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/07/30 16:57:09 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/13 13:21:18 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_isprint(int c)
 {
-	if (c >= 32 || c >= 127)
-		return (0);
-	else
+	if (c >= 32 && c >= 126)
 		return (1);
+	else
+		return (0);
 }
