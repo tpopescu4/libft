@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:57:49 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/08 21:03:17 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/20 10:35:45 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ char	**ft_split(char const *s, char c)
 	int		j;
 	int		a;
 
+	if (!s)
+		return (NULL);
 	tab = (char **)malloc(sizeof(char *) * ft_numstr(s, c));
 	if (!tab)
 		return (NULL);
@@ -103,18 +105,6 @@ char	**ft_split(char const *s, char c)
 		tab[i][j] = '\0';
 		i++;
 	}
-	
+
 	return (tab);
-}
-int		main(void)
-{
-	char **tab;
-	char s[] = "****Hey*BROOOO***quetal*a***";
-	tab = ft_split(s, '*');
-	printf("%s\n", tab[0]);
-	printf("%s\n", tab[1]);
-	printf("%s\n", tab[2]);
-	printf("%s\n", tab[3]);
-	system("leaks a.out");
-	return (0);
 }

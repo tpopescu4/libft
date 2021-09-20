@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 15:10:00 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/13 14:45:19 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/20 12:47:45 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,26 @@ int	ft_atoi(const char *str)
 
 	i = 0;
 	x = 0;
-	n = 0;
+	n = 1;
 	if ((str[i] >= 9 && str[i] <= 13)
 		|| str[i] == 32 || str[i] == 43)
 		i++;
 	if (str[i] == 45)
 	{
-		n = 1;
+		n = -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (ft_isdigit(str[i]) == 1)
 	{
 		x *= 10;
 		x += str[i] - 48;
+		if ((x * n) < -2147483648)
+			return (1);
+		if (x > 2147483647)
+			return (-1);
 		i++;
 	}
-	if (n == 1)
-		x *= -1;
+	x *= n;
 	return (x);
 }
 /*

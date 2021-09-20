@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 18:44:55 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/13 13:24:16 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/20 10:44:58 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	*ft_strdup(const char *s1)
 	i = 0;
 	while (s1[i])
 	{
-		cpy[i] = s1[l];
+		cpy[l] = s1[i];
 		i++;
 		l++;
 	}
-	cpy[i] = '\0';
+	cpy[l] = '\0';
 	return (cpy);
 }
