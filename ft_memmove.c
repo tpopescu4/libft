@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 20:49:15 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/20 12:32:33 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/22 21:37:21 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len-- > 0)
 			dstd[len] = srcd[len];
-	} else
+	}
+	else
 		dstd = ft_memcpy(dst, src, len);
 	return (dstd);
 }

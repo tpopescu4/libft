@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/14 20:54:00 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/22 21:32:31 by tpopescu         ###   ########.fr       */
+/*   Created: 2021/09/22 21:22:21 by tpopescu          #+#    #+#             */
+/*   Updated: 2021/09/22 21:30:37 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int				i;
-	unsigned char	*s1d;
-	unsigned char	*s2d;
+	char	*tab;
+	int		i;
 
-	s1d = (unsigned char *)s1;
-	s2d = (unsigned char *)s2;
+	if (!s)
+		return (NULL);
+	tab = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!tab)
+		return (NULL);
 	i = 0;
-	while (n-- > 0)
+	while (s[i])
 	{
-		if (s1d[i] != s2d[i])
-			return (s1d[i] - s2d[i]);
+		tab[i] = (*f)(i, s[i]);
 		i++;
 	}
-	return (0);
+	tab[i] = '\0';
+	return (tab);
 }

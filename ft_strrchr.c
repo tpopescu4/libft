@@ -6,7 +6,7 @@
 /*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 12:41:03 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/13 12:52:51 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/22 21:45:10 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	st = (char *)s;
 	while (i-- > 0)
 	{
-		if(*(st + i) == c)
+		if (*(st + i) == c)
 			return (st + i);
 	}
 	return (NULL);

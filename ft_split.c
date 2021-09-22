@@ -6,21 +6,22 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:57:49 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/20 10:35:45 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/22 21:43:45 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numchr(char const *s, char c, int a);
-int	ft_findstr(char const *s, char c, int a);
-int	ft_numstr(char const *s, char c);
+int		ft_numchr(char const *s, char c, int a);
+int		ft_findstr(char const *s, char c, int a);
+int		ft_numstr(char const *s, char c);
 char	**ft_split(char const *s, char c);
 
 int	ft_numchr(char const *s, char c, int a)
 {
 	int	i;
-	int j;
+	int	j;
+
 	i = 0;
 	j = ft_findstr(s, c, a);
 	while (s[j] && s[j] != c)
@@ -48,7 +49,7 @@ int	ft_findstr(char const *s, char c, int a)
 	while (s[i])
 	{
 		if (s[i] != c && s[i - 1] == c)
-		   j++;
+			j++;
 		if (j == a)
 			return (i);
 		i++;
@@ -89,22 +90,16 @@ char	**ft_split(char const *s, char c)
 	if (!tab)
 		return (NULL);
 	i = 0;
-	while (i < ft_numstr(s, c))
+	while (i++ < ft_numstr(s, c))
 	{
 		tab[i] = (char *)malloc(sizeof(char) * ft_numchr(s, c, i) + 1);
 		if (!tab[i])
 			return (NULL);
 		j = 0;
 		a = ft_findstr(s, c, i);
-		while (s[a] != c)
-		{
-			tab[i][j] = s[a];
-			j++;
-			a++;
-		}
+		while (s[a++] != c)
+			tab[i][j++] = s[a];
 		tab[i][j] = '\0';
-		i++;
 	}
-
 	return (tab);
 }

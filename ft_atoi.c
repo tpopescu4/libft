@@ -6,47 +6,37 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 15:10:00 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/20 12:47:45 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/09/22 21:57:31 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
-	int long	i;
-	int long	x;
-	int long	n;
+	long	n;
+	long	i;
+	long	sign;
 
+	n = 0;
 	i = 0;
-	x = 0;
-	n = 1;
-	if ((str[i] >= 9 && str[i] <= 13)
-		|| str[i] == 32 || str[i] == 43)
+	sign = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
 		i++;
-	if (str[i] == 45)
+	if (nptr[i] == 45)
 	{
-		n = -1;
+		sign = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]) == 1)
+	else if (nptr[i] == 43 || nptr[i] == 45)
+		i++;
+	while (nptr[i] && ft_isdigit(nptr[i]) == 1)
 	{
-		x *= 10;
-		x += str[i] - 48;
-		if ((x * n) < -2147483648)
-			return (1);
-		if (x > 2147483647)
+		n = n * 10 + (nptr[i++] - 48);
+		if ((n * sign) > 2147483647)
 			return (-1);
-		i++;
+		if ((n * sign) < -2147483648)
+			return (0);
 	}
-	x *= n;
-	return (x);
+	return (sign * n);
 }
-/*
-int main()
-{
-	const char *c = " 1245f2";
-	printf("mi atoi\t%d\n", ft_atoi(c));
-	printf("atoi\t%d\n", atoi(c));
-	return 0;
-}*/
