@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 17:32:08 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/13 14:42:27 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:18:11 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ char	*ft_strnstr(const char	*haystack, const char *needle, size_t len)
 			return (tab + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

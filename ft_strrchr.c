@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpopescu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 12:41:03 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/22 21:45:10 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:05:11 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,12 @@ char	*ft_strrchr(const char *s, int c)
 	int		i;
 	char	*st;
 
-	i = ft_strlen(s) + 1;
 	st = (char *)s;
+	i = ft_strlen(s) + 1;
 	while (i-- > 0)
 	{
-		if (*(st + i) == c)
+		if (*(st + i) == (char)c)
 			return (st + i);
 	}
 	return (NULL);
 }
-/*
-int main()
-{
-	char *s;
-	char d;
-	char b[] = "abcdef123";
-
-	d = 49;
-	s = strchr(b, d);
-	printf("%s\n", s);
-	return 0;
-}*/

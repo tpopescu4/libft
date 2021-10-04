@@ -6,100 +6,87 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/18 17:57:49 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/22 21:43:45 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/10/04 20:54:21 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_numchr(char const *s, char c, int a);
-int		ft_findstr(char const *s, char c, int a);
-int		ft_numstr(char const *s, char c);
-char	**ft_split(char const *s, char c);
-
-int	ft_numchr(char const *s, char c, int a)
+size_t	ft_strlen2(const char *str, char c, size_t i)
 {
-	int	i;
-	int	j;
+	int	init;
 
-	i = 0;
-	j = ft_findstr(s, c, a);
-	while (s[j] && s[j] != c)
-	{
+	init = i;
+	while (str[i] != '\0' && str[i] != c)
 		i++;
-		j++;
-	}
-	return (i);
+	return (i - init);
 }
 
-int	ft_findstr(char const *s, char c, int a)
+static	int	ft_count_w(const char *s, char c)
 {
+	int	word;
 	int	i;
-	int	j;
 
 	i = 0;
-	j = -1;
-	if (a == 0 && s[i] != c)
-		return (i);
+	word = 0;
+	if (!s)
+		return (0);
 	if (s[0] != c)
-	{
-		i++;
-		j++;
-	}
+		word++;
 	while (s[i])
 	{
-		if (s[i] != c && s[i - 1] == c)
-			j++;
-		if (j == a)
-			return (i);
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+			word++;
 		i++;
 	}
-	return (i);
+	if (word == 0)
+		return (1);
+	return (word);
 }
 
-int	ft_numstr(char const *s, char c)
+static	char	*ft_put_w(const char *s, char c, int *i)
 {
-	int	i;
-	int	j;
+	char	*str;
+	int		k;
+
+	str = (char *)malloc(sizeof(char) * (ft_strlen2(s, c, *i) + 1));
+	if (!str)
+		return (NULL);
+	k = 0;
+	while (s[*i] != c && s[*i])
+	{
+		str[k] = s[*i];
+		k++;
+		*i += 1;
+	}
+	str[k] = '\0';
+	while (s[*i] == c && s[*i])
+		*i += 1;
+	return (str);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	int		i;
+	int		j;
+	int		word;
+	char	**str;
 
 	i = 0;
 	j = 0;
-	if (s[0] != c)
-		j++;
-	while (s[i + 1] != c)
-		i++;
-	while (s[i])
-	{
-		if (s[i] != c && s[i - 1] == c)
-			j++;
-		i++;
-	}
-	return (j);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**tab;
-	int		i;
-	int		j;
-	int		a;
-
+	word = ft_count_w(s, c);
 	if (!s)
 		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * ft_numstr(s, c));
-	if (!tab)
+	str = (char **)malloc(sizeof(char *) * (ft_count_w(s, c) + 1));
+	if (!str)
 		return (NULL);
-	i = 0;
-	while (i++ < ft_numstr(s, c))
+	while (s[i] == c && s[i])
+		i++;
+	while (j < word && s[i])
 	{
-		tab[i] = (char *)malloc(sizeof(char) * ft_numchr(s, c, i) + 1);
-		if (!tab[i])
-			return (NULL);
-		j = 0;
-		a = ft_findstr(s, c, i);
-		while (s[a++] != c)
-			tab[i][j++] = s[a];
-		tab[i][j] = '\0';
+		str[j] = ft_put_w(s, c, &i);
+		j++;
 	}
-	return (tab);
+	str[j] = NULL;
+	return (str);
 }

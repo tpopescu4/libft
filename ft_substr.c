@@ -6,7 +6,7 @@
 /*   By: tpopescu <tpopescu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 17:47:29 by tpopescu          #+#    #+#             */
-/*   Updated: 2021/09/22 21:36:25 by tpopescu         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:07:03 by tpopescu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start > (unsigned int)ft_strlen(s) - 1)
 		return (ft_strdup (""));
+	if (len > ft_strlen(s) - start - 1)
+		len = ft_strlen(s) - start ;
 	f = (char *)malloc(sizeof(char) * len + 1);
 	if (!f)
 		return (NULL);
