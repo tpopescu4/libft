@@ -52,7 +52,7 @@ char	*ft_put_p(const char *s, char c, int *i)
 	str = (char *)malloc(sizeof(char) * (ft_strlen2(s, c, *i) + 1));
 	if (!str)
 		return (NULL);
-	k = 0;
+	j = 0;
 	while (s[*i] != c && s[*i])
 	{
 		str[j] = s[*i];
@@ -87,6 +87,6 @@ char	**ft_split(const char *s, char c)
 		str[j] = ft_put_p(s, c, &i);
 		j++;
 	}
-	str[j] = '\0';
+	str[j] = NULL;
 	return (str);
 }
