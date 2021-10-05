@@ -47,8 +47,9 @@ char	*ft_itoa(int n)
 	tab[len + neg] = '\0';
 	while (len > 0)
 	{
-		tab[--len + neg] = n % 10 + 48;
+		tab[len + neg] = n % 10 + 48;
 		n /= 10;
+		len--;
 	}
 	if (neg == 1)
 		tab[0] = '-';
